@@ -3,34 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Placeholder Page</title>
+    <title>Professional CompyCore Authentication</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.amber.min.css" />
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
+      #logo {
+        margin: 75px auto; /* Center horizontally */
+        width: 275px;
+        display: block;
       }
-      .container {
+
+      #cardImage {
+        margin: 50px auto; /* Center horizontally */
+        display: block;
+      }
+
+      .rowLabel {
+        font-weight: bold;
+        text-align: right;
+      }
+
+      td {
+        width: 50%;
+      }
+
+      h2,
+      header,
+      p {
         text-align: center;
       }
-      h1 {
-        font-size: 3em;
-        margin-bottom: 0.5em;
-      }
-      p {
-        font-size: 1.5em;
-        color: #666;
+
+      #authVerification {
+        color: var(--pico-primary-background);
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Placeholder Page</h1>
-      <p>This is a placeholder page.</p>
-    </div>
+    <main class="container">
+      <img id="logo" src="../images/pca-logo-amber.png" />
+      <p>According to the PCA database, the requested authentication number is defined as the following:</p>
+      <article>
+        <header>PCA Authentication Verification</header>
+        <h2 id="authVerification"></h2>
+      </article>
+      <a id="cardLink" target="_blank"><img id="cardImage" /></a>
+      <h2>Card Information</h2>
+      <table class="striped">
+        <tbody>
+          <tr>
+            <td class="rowLabel">Authentication Number</td>
+            <td id="authNumber"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Tier</td>
+            <td id="cardTier"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Quality</td>
+            <td id="cardQuality"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Authentication Date</td>
+            <td id="authDate"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Name</td>
+            <td id="cardName"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Number</td>
+            <td id="cardNumber"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Rarity</td>
+            <td id="cardRarity"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Release Date</td>
+            <td id="cardReleaseDate"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer class="container" style="text-align: center; opacity: 0.5">Copyright &copy; <span id="currentYear"></span> CompyCore Inc. All rights reserved.</footer>
+    <script>
+      const currentYear = new Date().getFullYear();
+      document.getElementById("currentYear").textContent = currentYear;
+
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("authNumber").textContent = data.id;
+          document.getElementById("authVerification").textContent = "#" + data.id;
+          document.getElementById("cardImage").src = data.card.images.small;
+          document.getElementById("cardLink").href = data.card.tcgplayer.url;
+          const baseDate = new Date("1999-01-09T00:00:00Z");
+          const authDate = new Date(baseDate.getTime() + data.id * 60000);
+          document.getElementById("authDate").textContent = authDate.toISOString().split("T")[0].replaceAll("-", "/");
+          document.getElementById("cardReleaseDate").textContent = data.card.set.releaseDate;
+          document.getElementById("cardNumber").textContent = data.card.number;
+          document.getElementById("cardName").textContent = data.card.name;
+          document.getElementById("cardRarity").textContent = data.card.rarity;
+          document.getElementById("cardTier").textContent = data.cardTier;
+          document.getElementById("cardQuality").textContent = data.cardQuality;
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    </script>
   </body>
 </html>
