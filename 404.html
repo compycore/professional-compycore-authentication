@@ -1,1 +1,38 @@
-Haha whoops no card here
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional CompyCore Authentication</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.amber.min.css" />
+    <style>
+      #logo {
+        margin: 75px auto; /* Center horizontally */
+        width: 275px;
+        display: block;
+      }
+
+      h1,
+      h2,
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" style="max-width: 750px">
+      <div style="text-align: center; margin: 75px auto">
+        <a href="/" target="_blank">
+          <img id="logo" src="images/pca-logo-amber.png" style="width: 275px" />
+        </a>
+      </div>
+      <h2>Card Not Found</h2>
+      <p>We were unable to find the specified card in the PCA Authentication Number database. <a href="/">Click here</a> to search for a different Authentication Number.</p>
+    </main>
+    <footer class="container" style="text-align: center; opacity: 0.5">Copyright &copy; <span id="currentYear"></span> CompyCore Inc. All rights reserved.</footer>
+    <script>
+      const currentYear = new Date().getFullYear();
+      document.getElementById("currentYear").textContent = currentYear;
+    </script>
+  </body>
+</html>
