@@ -4,16 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Professional CompyCore Authentication</title>
+    <link rel="icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.amber.min.css" />
     <style>
       #logo {
         margin: 75px auto; /* Center horizontally */
         width: 275px;
-        display: block;
-      }
-
-      #cardImage {
-        margin: 50px auto; /* Center horizontally */
         display: block;
       }
 
@@ -40,12 +36,16 @@
   <body>
     <main class="container">
       <img id="logo" src="../images/pca-logo-amber.png" />
-      <p>According to the PCA database, the requested authentication number is defined as the following:</p>
+      <p>According to the PCA database, the requested Authentication Number is defined as the following:</p>
       <article>
         <header>PCA Authentication Verification</header>
         <h2 id="authVerification"></h2>
       </article>
-      <a id="cardLink" target="_blank"><img id="cardImage" /></a>
+      <div style="text-align: center; margin-top: 50px">
+        <a id="cardLink" target="_blank">
+          <img id="cardImage" />
+        </a>
+      </div>
       <h2>Card Information</h2>
       <table class="striped">
         <tbody>
