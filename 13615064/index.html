@@ -52,6 +52,10 @@
             <td id="authNumber"></td>
           </tr>
           <tr>
+            <td class="rowLabel">PCA Grading</td>
+            <td id="grading"></td>
+          </tr>
+          <tr>
             <td class="rowLabel">Card Tier</td>
             <td id="cardTier"></td>
           </tr>
@@ -62,6 +66,10 @@
           <tr>
             <td class="rowLabel">Authentication Date</td>
             <td id="authDate"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">PCA Label Version</td>
+            <td id="labelVersion"></td>
           </tr>
           <tr>
             <td class="rowLabel">Card Name</td>
@@ -90,19 +98,24 @@
       fetch("data.json")
         .then((response) => response.json())
         .then((data) => {
-          document.getElementById("authNumber").textContent = data.id;
           document.getElementById("authVerification").textContent = "#" + data.id;
+
           document.getElementById("cardImage").src = data.card.images.small;
           document.getElementById("cardLink").href = data.card.tcgplayer.url;
+
+          document.getElementById("authNumber").textContent = data.id;
+          // document.getElementById("grading").textContent = data.grading;
+          document.getElementById("cardTier").textContent = data.cardTierName;
+          document.getElementById("cardQuality").textContent = data.cardQualityName;
           const baseDate = new Date("1999-01-09T00:00:00Z");
           const authDate = new Date(baseDate.getTime() + data.id * 60000);
           document.getElementById("authDate").textContent = authDate.toISOString().split("T")[0].replaceAll("-", "/");
-          document.getElementById("cardReleaseDate").textContent = data.card.set.releaseDate;
-          document.getElementById("cardNumber").textContent = data.card.number;
+          document.getElementById("labelVersion").textContent = data.labelVersion;
+
           document.getElementById("cardName").textContent = data.card.name;
+          document.getElementById("cardNumber").textContent = data.card.number;
           document.getElementById("cardRarity").textContent = data.card.rarity;
-          document.getElementById("cardTier").textContent = data.cardTier;
-          document.getElementById("cardQuality").textContent = data.cardQuality;
+          document.getElementById("cardReleaseDate").textContent = data.card.set.releaseDate;
         })
         .catch((error) => console.error("Error fetching data:", error));
     </script>
