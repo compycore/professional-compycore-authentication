@@ -53,7 +53,7 @@
           </tr>
           <tr>
             <td class="rowLabel">PCA Grading</td>
-            <td id="grading"></td>
+            <td id="grading"><img id="gradingImage" /></td>
           </tr>
           <tr>
             <td class="rowLabel">Card Tier</td>
@@ -104,7 +104,7 @@
           document.getElementById("cardLink").href = data.card.tcgplayer.url;
 
           document.getElementById("authNumber").textContent = data.id;
-          // document.getElementById("grading").textContent = data.grading;
+          document.getElementById("gradingImage").src = `../images/grading-${data.cardQuality}-${data.cardTier}.png`;
           document.getElementById("cardTier").textContent = data.cardTierName;
           document.getElementById("cardQuality").textContent = data.cardQualityName;
           const baseDate = new Date("1999-01-09T00:00:00Z");
