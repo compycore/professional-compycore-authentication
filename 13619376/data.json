@@ -1,5 +1,5 @@
 {
-  "id": 13619348,
+  "id": 13619376,
   "cardTier": 3,
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
@@ -64,7 +64,8 @@
       "images": {
         "symbol": "https://images.pokemontcg.io/sv3/symbol.png",
         "logo": "https://images.pokemontcg.io/sv3/logo.png"
-      }
+      },
+      "nameShort": "OBF"
     },
     "number": "208",
     "artist": "Jerky",
