@@ -108,7 +108,7 @@
           document.getElementById("cardLink").href = data.card.tcgplayer.url;
 
           document.getElementById("authNumber").textContent = data.id;
-          document.getElementById("gradingImage").src = `../images/grading-${data.cardQuality}-${data.cardTier}.png`;
+          document.getElementById("gradingImage").src = `../images/grading-${data.cardQuality}-${data.cardTier}-inverted.png`;
           document.getElementById("cardTier").textContent = data.cardTierName;
           document.getElementById("cardQuality").textContent = data.cardQualityName;
           const baseDate = new Date("1999-01-09T00:00:00Z");
