@@ -1,0 +1,87 @@
+{
+  "id": 13636771,
+  "cardTier": 3,
+  "cardTierName": "S++ Tier",
+  "cardQuality": 3,
+  "cardQualityName": "Mint",
+  "labelVersion": "v1",
+  "card": {
+    "id": "sv6-209",
+    "name": "Perrin",
+    "supertype": "Trainer",
+    "subtypes": [
+      "Supporter"
+    ],
+    "rules": [
+      "Reveal up to 2 Pokémon in your hand and put them into your deck. If you do, search your deck for up to that many Pokémon, reveal them, and put them into your hand. Then, shuffle your deck.",
+      "You may play only 1 Supporter card during your turn."
+    ],
+    "set": {
+      "id": "sv6",
+      "name": "Twilight Masquerade",
+      "series": "Scarlet & Violet",
+      "printedTotal": 167,
+      "total": 226,
+      "legalities": {
+        "unlimited": "Legal",
+        "standard": "Legal",
+        "expanded": "Legal"
+      },
+      "ptcgoCode": "TWM",
+      "releaseDate": "2024/05/24",
+      "updatedAt": "2024/05/23 15:00:00",
+      "images": {
+        "symbol": "https://images.pokemontcg.io/sv6/symbol.png",
+        "logo": "https://images.pokemontcg.io/sv6/logo.png"
+      },
+      "nameShort": "TWM"
+    },
+    "number": "209",
+    "artist": "Naoki Saito",
+    "rarity": "Ultra Rare",
+    "legalities": {
+      "unlimited": "Legal",
+      "standard": "Legal",
+      "expanded": "Legal"
+    },
+    "regulationMark": "H",
+    "images": {
+      "small": "https://images.pokemontcg.io/sv6/209.png",
+      "large": "https://images.pokemontcg.io/sv6/209_hires.png"
+    },
+    "tcgplayer": {
+      "url": "https://prices.pokemontcg.io/tcgplayer/sv6-209",
+      "updatedAt": "2024/12/12",
+      "prices": {
+        "holofoil": {
+          "low": 2.25,
+          "mid": 3.7,
+          "high": 24.95,
+          "market": 3.65,
+          "directLow": 4.99
+        }
+      }
+    },
+    "cardmarket": {
+      "url": "https://prices.pokemontcg.io/cardmarket/sv6-209",
+      "updatedAt": "2024/12/12",
+      "prices": {
+        "averageSellPrice": 3.67,
+        "lowPrice": 1.98,
+        "trendPrice": 3.5,
+        "germanProLow": 0,
+        "suggestedPrice": 0,
+        "reverseHoloSell": 0,
+        "reverseHoloLow": 0,
+        "reverseHoloTrend": 0,
+        "lowPriceExPlus": 1.98,
+        "avg1": 3.22,
+        "avg7": 3.66,
+        "avg30": 3.69,
+        "reverseHoloAvg1": 0,
+        "reverseHoloAvg7": 0,
+        "reverseHoloAvg30": 0
+      }
+    }
+  }
+}
