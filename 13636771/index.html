@@ -108,7 +108,23 @@
         .then((data) => {
           document.getElementById("authVerification").textContent = "#" + data.id;
 
-          document.getElementById("cardImage").src = data.card.images.small;
+          const photoPng = new Image();
+          const photoJpg = new Image();
+          photoPng.src = "photo.png";
+          photoJpg.src = "photo.jpg";
+
+          photoPng.onload = () => {
+            document.getElementById("cardImage").src = photoPng.src;
+          };
+          photoPng.onerror = () => {
+            photoJpg.onload = () => {
+              document.getElementById("cardImage").src = photoJpg.src;
+            };
+            photoJpg.onerror = () => {
+              document.getElementById("cardImage").src = data.card.images.small;
+            };
+          };
+
           document.getElementById("cardLink").href = data.card.tcgplayer.url;
 
           document.getElementById("authNumber").textContent = data.id;
