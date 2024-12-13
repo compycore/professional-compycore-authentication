@@ -1,0 +1,22 @@
+{
+  "id": 13636850,
+  "cardTier": 3,
+  "cardTierName": "S++ Tier",
+  "cardQuality": 3,
+  "cardQualityName": "Mint",
+  "labelVersion": "v1",
+  "card": {
+    "name": "Pokémon Nurse",
+    "set": {
+      "releaseDate": "2023/11/17"
+    },
+    "number": "23",
+    "rarity": "Classic Collection",
+    "images": {
+      "small": "https://tcgplayer-cdn.tcgplayer.com/product/527912_in_1000x1000.jpg"
+    },
+    "tcgplayer": {
+      "url": "https://www.tcgplayer.com/product/527912?Printing=Holofoil&Language=English"
+    }
+  }
+}
