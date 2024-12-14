@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "KINGAMBIT",
+  "cardRarity": "ILLUS RARE",
+  "cardSet": "2023 POKÉMON SV1S JP",
+  "cardLanguage": "JP",
   "labelVersion": "v1",
   "card": {
     "name": "Kingambit",
