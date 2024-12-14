@@ -4,18 +4,16 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "PROFESSOR'S RESEARCH",
+  "cardRarity": "RARE HOLO",
+  "cardSet": "2021 POKÉMON CEL EN",
   "labelVersion": "v1",
   "card": {
     "id": "cel25-23",
     "name": "Professor's Research (Professor Oak)",
     "supertype": "Trainer",
-    "subtypes": [
-      "Supporter"
-    ],
-    "rules": [
-      "Discard your hand and draw 7 cards.",
-      "You may play only 1 Supporter card during your turn."
-    ],
+    "subtypes": ["Supporter"],
+    "rules": ["Discard your hand and draw 7 cards.", "You may play only 1 Supporter card during your turn."],
     "set": {
       "id": "cel25",
       "name": "Celebrations",
