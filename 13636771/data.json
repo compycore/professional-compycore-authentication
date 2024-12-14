@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "PERRIN",
+  "cardRarity": "ULTRA RARE",
+  "cardSet": "2024 POKÉMON TWM EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "id": "sv6-209",
