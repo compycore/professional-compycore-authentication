@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional CompyCore Authentication</title>
+    <link rel="icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.amber.min.css" />
+    <style>
+      .rowLabel {
+        font-weight: bold;
+        text-align: right;
+      }
+
+      td {
+        width: 50%;
+      }
+
+      h2,
+      header,
+      p {
+        text-align: center;
+      }
+
+      #authVerification {
+        color: var(--pico-primary-background);
+      }
+
+      #gradingImage {
+        max-height: 20px;
+      }
+
+      #cardImage {
+        max-height: 342px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div style="text-align: center; margin: 75px auto">
+        <a href="/">
+          <img id="logo" src="../images/pca-logo-amber.png" style="width: 275px" />
+        </a>
+      </div>
+      <p>According to the Professional CompyCore Authentication database, the requested Authentication Number is defined as the following card:</p>
+      <article>
+        <header>PCA Authentication Verification</header>
+        <h2 id="authVerification"></h2>
+      </article>
+      <div style="text-align: center; margin-top: 50px">
+        <a id="cardLink" target="_blank">
+          <img id="cardImage" />
+        </a>
+      </div>
+      <h2>Card Information</h2>
+      <table class="striped">
+        <tbody>
+          <tr>
+            <td class="rowLabel">Authentication Number</td>
+            <td id="authNumber"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">PCA Grading</td>
+            <td id="grading"><img id="gradingImage" /></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Tier</td>
+            <td id="cardTier"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Quality</td>
+            <td id="cardQuality"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Authentication Date</td>
+            <td id="authDate"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">PCA Label Version</td>
+            <td id="labelVersion"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Name</td>
+            <td id="cardName"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Number</td>
+            <td id="cardNumber"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Rarity</td>
+            <td id="cardRarity"></td>
+          </tr>
+          <tr>
+            <td class="rowLabel">Card Release Date</td>
+            <td id="cardReleaseDate"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer class="container" style="text-align: center; opacity: 0.5">Copyright &copy; <span id="currentYear"></span> CompyCore Inc. All rights reserved.</footer>
+    <script>
+      const currentYear = new Date().getFullYear();
+      document.getElementById("currentYear").textContent = currentYear;
+
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("authVerification").textContent = "#" + data.id;
+
+          const photoPng = new Image();
+          const photoJpg = new Image();
+          photoPng.src = "photo.png";
+          photoJpg.src = "photo.jpg";
+
+          photoPng.onload = () => {
+            document.getElementById("cardImage").src = photoPng.src;
+          };
+          photoPng.onerror = () => {
+            photoJpg.onload = () => {
+              document.getElementById("cardImage").src = photoJpg.src;
+            };
+            photoJpg.onerror = () => {
+              document.getElementById("cardImage").src = data.card.images.small;
+            };
+          };
+
+          document.getElementById("cardLink").href = data.card.tcgplayer.url;
+
+          document.getElementById("authNumber").textContent = data.id;
+          document.getElementById("gradingImage").src = `../images/grading-${data.cardQuality}-${data.cardTier}-inverted.png`;
+          document.getElementById("cardTier").textContent = data.cardTierName;
+          document.getElementById("cardQuality").textContent = data.cardQualityName;
+          const baseDate = new Date("1999-01-09T00:00:00Z");
+          const authDate = new Date(baseDate.getTime() + data.id * 60000);
+          document.getElementById("authDate").textContent = authDate.toISOString().split("T")[0].replaceAll("-", "/");
+          document.getElementById("labelVersion").textContent = data.labelVersion;
+
+          document.getElementById("cardName").textContent = data.card.name;
+          document.getElementById("cardNumber").textContent = data.card.number;
+          document.getElementById("cardRarity").textContent = data.card.rarity;
+          document.getElementById("cardReleaseDate").textContent = data.card.set.releaseDate;
+        })
+        .catch((error) => console.error("Error fetching data:", error));
+    </script>
+  </body>
+</html>
