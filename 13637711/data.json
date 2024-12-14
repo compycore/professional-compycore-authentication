@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "SMEARGLE",
+  "cardRarity": "RARE",
+  "cardSet": "2015 POKÉMON BKT EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "id": "xy8-123",
