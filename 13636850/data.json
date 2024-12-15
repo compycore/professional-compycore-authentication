@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "POKÉMON NURSE",
+  "cardRarity": "CLASSIC",
+  "cardSet": "2023 POKÉMON CLV EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "name": "Pokémon Nurse",
