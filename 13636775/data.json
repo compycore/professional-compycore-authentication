@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 2,
   "cardQualityName": "Good",
+  "cardName": "MOM'S KINDNESS",
+  "cardRarity": "UNCOMMON",
+  "cardSet": "2008 POKÉMON MD EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "id": "dp5-83",
