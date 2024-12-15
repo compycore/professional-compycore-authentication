@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "SCIZOR V",
+  "cardRarity": "RARE HOLO V",
+  "cardSet": "2020 POKÉMON DAA EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "id": "swsh3-118",

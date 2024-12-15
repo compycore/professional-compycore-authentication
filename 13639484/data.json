@@ -4,6 +4,10 @@
   "cardTierName": "S++ Tier",
   "cardQuality": 3,
   "cardQualityName": "Mint",
+  "cardName": "MELMETAL VMAX",
+  "cardRarity": "RARE HOLO VMAX",
+  "cardSet": "2022 POKÉMON PGO EN",
+  "cardLanguage": "EN",
   "labelVersion": "v1",
   "card": {
     "id": "pgo-48",
