@@ -62,7 +62,8 @@
       async function fetchImages() {
         try {
           const response = await fetch("all.json");
-          const allData = await response.json();
+          let allData = await response.json();
+          allData = allData.reverse().slice(0, 12);
           const imageGrid = document.getElementById("imageGrid");
 
           for (const path of allData) {
