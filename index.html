@@ -12,6 +12,16 @@
       p {
         text-align: center;
       }
+      .grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 35px;
+        justify-items: center;
+      }
+      .grid img {
+        max-height: 150px;
+      }
     </style>
   </head>
   <body>
@@ -33,6 +43,8 @@
           <input type="submit" value="Verify" />
         </fieldset>
       </form>
+      <h2>Recently-Graded Cards</h2>
+      <div id="imageGrid" class="grid"></div>
     </main>
     <footer class="container" style="text-align: center; opacity: 0.5">Copyright &copy; <span id="currentYear"></span> CompyCore Inc. All rights reserved.</footer>
     <script>
@@ -46,6 +58,32 @@
           window.location.href = `/${authNumber}`;
         }
       }
+
+      async function fetchImages() {
+        try {
+          const response = await fetch("all.json");
+          const allData = await response.json();
+          const imageGrid = document.getElementById("imageGrid");
+
+          for (const path of allData) {
+            const cardId = path.split("/")[0];
+            const cardResponse = await fetch(path);
+            const cardData = await cardResponse.json();
+            const imgUrl = cardData.card.images.small;
+
+            const link = document.createElement("a");
+            link.href = `/${cardId}`;
+            const img = document.createElement("img");
+            img.src = imgUrl;
+            link.appendChild(img);
+            imageGrid.appendChild(link);
+          }
+        } catch (error) {
+          console.error("Error fetching images:", error);
+        }
+      }
+
+      fetchImages();
     </script>
   </body>
 </html>
