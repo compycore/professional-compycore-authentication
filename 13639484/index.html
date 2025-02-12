@@ -109,22 +109,34 @@
         .then((data) => {
           document.getElementById("authVerification").textContent = "#" + data.id;
 
-          const photoPng = new Image();
-          const photoJpg = new Image();
-          photoPng.src = "photo.png";
-          photoJpg.src = "photo.jpg";
+          // List of card image URLs in order of priority
+          const cardImageUrls = [
+            "photo.png", // Highest priority
+            "photo.jpg",
+            data.card.images.small,
+          ];
 
-          photoPng.onload = () => {
-            document.getElementById("cardImage").src = photoPng.src;
-          };
-          photoPng.onerror = () => {
-            photoJpg.onload = () => {
-              document.getElementById("cardImage").src = photoJpg.src;
-            };
-            photoJpg.onerror = () => {
-              document.getElementById("cardImage").src = data.card.images.small;
-            };
-          };
+          // Function to find the first valid card image
+          function setCardImageSrc(imageElement, imageUrls) {
+            let index = 0;
+
+            function tryNextCardImage() {
+              if (index >= imageUrls.length) return; // No valid card images found
+              const img = new Image();
+              img.src = imageUrls[index];
+              img.onload = () => (imageElement.src = imageUrls[index]); // Set src if valid
+              img.onerror = () => {
+                index++;
+                tryNextCardImage(); // Try the next card image
+              };
+            }
+
+            tryNextCardImage();
+          }
+
+          // Set the card image dynamically
+          const cardImageElement = document.getElementById("cardImage");
+          setCardImageSrc(cardImageElement, cardImageUrls);
 
           document.getElementById("cardLink").href = data.card.tcgplayer.url;
 
